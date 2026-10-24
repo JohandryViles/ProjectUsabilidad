@@ -1,0 +1,42 @@
+---
+// Página de prueba del módulo de IA (punto 2). La maquetación final la integra el layout del equipo.
+import AiTabs from '../components/ia/AiTabs';
+import AltTextSuggester from '../components/ia/AltTextSuggester';
+import Transcriber from '../components/ia/Transcriber';
+
+const ejemplo = `La fotosíntesis es el proceso mediante el cual las plantas, algas y algunas bacterias transforman la energía lumínica del sol en energía química. Durante este proceso, los organismos fotosintéticos absorben dióxido de carbono del aire y agua del suelo, y mediante la clorofila presente en los cloroplastos producen glucosa y liberan oxígeno a la atmósfera. Este mecanismo es fundamental para la vida en la Tierra, ya que constituye la base de la mayoría de las cadenas alimentarias y regula la composición de la atmósfera.`;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo IA · IncluAula IA</title>
+    <style>
+      body { font: 1.125rem/1.6 system-ui, sans-serif; max-width: 60rem; margin: 0 auto; padding: 1rem; color: #1a1a1a; background: #fff; }
+      :focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+      button { min-height: 44px; padding: 0.5rem 1rem; font: inherit; cursor: pointer; }
+      label { display: block; margin-top: 1rem; font-weight: 600; }
+      input[type=text], textarea { width: 100%; font: inherit; }
+      [role=tablist] { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+      [role=tab][aria-selected=true] { background: #0b57d0; color: #fff; }
+      .error { color: #a50e0e; }
+      .aviso-ia { background: #fff4ce; padding: 0.5rem; border-left: 4px solid #8a6d00; }
+      .pictogramas { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0; }
+      .pictogramas figcaption { text-align: center; font-weight: 600; }
+      .transcripcion li[aria-current=true] .segmento { background: #fff4ce; }
+      .segmento { text-align: left; width: 100%; background: none; border: 0; }
+      .tiempo { font-variant-numeric: tabular-nums; color: #444; }
+      @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+    </style>
+  </head>
+  <body>
+    <a href="#main">Saltar al contenido</a>
+    <main id="main">
+      <h1>Herramientas de IA de IncluAula</h1>
+      <h2>Material de ejemplo: La fotosíntesis</h2>
+      <AiTabs client:load texto={ejemplo} />
+      <AltTextSuggester client:visible />
+      <Transcriber client:visible />
+    </main>
+  </body>
+</html>
